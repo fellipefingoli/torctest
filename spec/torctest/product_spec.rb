@@ -10,11 +10,11 @@ RSpec.describe Torctest::Product do
     allow(tax_product).to receive(:apply).and_return(OpenStruct.new(price: 16.49, tax_fee: 1.5))
   end
 
-  it 'price' do
+  it '.price' do
     expect(subject.price).to be(16.49)
   end
 
-  it 'tax_fee' do
+  it '.tax_fee' do
     expect(subject.tax_fee).to be(1.5)
   end
 end
