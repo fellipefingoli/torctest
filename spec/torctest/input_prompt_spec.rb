@@ -4,7 +4,7 @@ RSpec.describe Torctest::InputPrompt do
   subject { described_class.call }
 
   it 'get a list of products from prompt' do
-    allow($stdin).to receive(:gets).and_return('2 book at 12.49', '\n', '1 music CD at 14.99', 'n\n')
+    allow($stdin).to receive(:gets).and_return('2 book at 12.49', '\n', '1 music CD at 14.99', 'n')
 
     expect(subject).to eq([
                             { name: 'book', quantity: 2, price: 12.49, imported: false },
