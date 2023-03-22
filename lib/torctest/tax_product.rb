@@ -27,13 +27,13 @@ module Torctest
     def self.taxed_product_fee(product)
       default_tax = calculate_tax_fee(product)
       imported_tax = imported_tax(product)
-      imported_tax_fee = imported_tax.positive? ? product.price * imported_tax : 0.0
-      tax_fee = default_tax.positive? ? (product.price + imported_tax_fee) * default_tax : 0.0
+      imported_tax_fee = imported_tax.positive? ? product.original_price * imported_tax : 0.0
+      tax_fee = default_tax.positive? ? (product.original_price + imported_tax_fee) * default_tax : 0.0
       tax_fee + imported_tax_fee
     end
 
     def self.taxed_product_price(product)
-      product.price + taxed_product_fee(product)
+      product.original_price + taxed_product_fee(product)
     end
   end
 end
